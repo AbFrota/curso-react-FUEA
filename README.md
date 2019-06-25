@@ -1,3 +1,32 @@
+
+# PROJETO DCIOT - TREINAMENTOS
+## Curso de React/ React Native
+Esse repositório possui os códigos gerados no curso de react que foi ministrado  durante a fase de treinamento do projeto de P&D - DCIOT.
+
+Professor: Marco Antonio Neves
+Email: marcobneves@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
