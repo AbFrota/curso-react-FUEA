@@ -1,90 +1,63 @@
-import React from 'react';
+import React, {Component} from 'react';
 //import logo from './logo.svg';
 import './App.css';
 
-function Boasvindas(props) {
-  return <h1>Olá {props.nome}</h1>
-}
 
-const postagem = [
-  {
-    data: new Date(),
-    text: 'Curso de React Uea 2019',
-    autor: {
-      nome: 'Marco',
-      imagemUrl: 'data:image/png;base64,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'
-    }
-  },
-
-  {
-    data: new Date(),
-    text: 'Curso de React-Native',
-    autor: {
-      nome: 'Beatriz',
-      imagemUrl: 'data:image/png;base64,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'
+class ListaAutor  extends Component {
+  
+  constructor(){
+    super();
+    this.state = {
+      autores:[
+        {nome: 'Marco', email:'marco@gmail.com', senha:'12345'},
+      ]
     }
   }
 
-]
+  listagem = ()=>{
 
-function Foto(props) {
-  return (
-    <img
-      src={props.usuario.imagemUrl}
-      alt={props.usuario.nome}
-    />
-  )
-}
+  }
+  
+  render(){
+    return (
+      <div> 
+        <table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Email</th>
+      <th scope="col">Senha</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      {
+        this.state.autores.map((item)=>{
+            return(
+              <tr>
+              <th scope="row">1</th>
+              <td>{item.nome}</td>
+              <td>{item.email}</td>
+              <td>{item.senha}</td>
+    </tr>
 
-function UsuarioInformacao(props) {
-  return (
-    <div>
-      <div>
-        {props.autor.nome}
-      </div>
-      <div>
-        {props.text}
-      </div>
-    </div>
-  )
-}
+            )
+        })
+      }
 
-function Comentario(props) {
-  return (
-
-    <div>
-      <div>
-        <Foto usuario={props.autor} />
-        <UsuarioInformacao autor={props.autor} text={props.text}/>
-      </div>
-
-
-      <div>
-        {FormatData(props.data)}
-      </div>
-    </div>
-  )
-}
-
-function FormatData(data) {
-  return data.toLocaleDateString();
+  </tbody>
+</table>
+         </div> 
+    )
+  }
 }
 
 function App() {
   return (
     <div className="App">
-      <Comentario autor={postagem[0].autor}
-        data={postagem[0].data}
-        text={postagem[0].text} />
-
-      <Comentario autor={postagem[1].autor}
-        data={postagem[1].data}
-        text={postagem[1].text} />
-    </div>
+      <ListaAutor/>
+       </div>
   );
-
-
-
 }
-
 export default App;

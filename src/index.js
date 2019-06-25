@@ -1,12 +1,13 @@
-import React from 'react';
+import React, {Component}  from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.css'
+
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 
-//const nome = "Bia";
-//const elemento  = <h1> Olá {nome}</h1>
+
 
 
 ReactDOM.render(<App/>, document.getElementById('root'));   
